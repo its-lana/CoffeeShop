@@ -1,0 +1,58 @@
+
+2024/07/16 00:40:22 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[14.332ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'customers' AND table_type = 'BASE TABLE'
+
+2024/07/16 00:40:22 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[32.018ms] [34;1m[rows:0][0m CREATE TABLE "customers" ("id" bigserial,"full_name" varchar(256) NOT NULL,"email" varchar(64) NOT NULL,"phone_number" varchar(16),"password" varchar(128),"created_at" timestamptz,"updated_at" timestamptz,PRIMARY KEY ("id"),CONSTRAINT "uni_customers_email" UNIQUE ("email"))
+
+2024/07/16 00:41:29 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[8.470ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'customers' AND table_type = 'BASE TABLE'
+
+2024/07/16 00:41:29 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[12.497ms] [34;1m[rows:0][0m CREATE TABLE "customers" ("id" bigserial,"full_name" varchar(256) NOT NULL,"email" varchar(64) NOT NULL,"phone_number" varchar(16),"password" varchar(128),"created_at" timestamptz,"updated_at" timestamptz,PRIMARY KEY ("id"),CONSTRAINT "uni_customers_email" UNIQUE ("email"))
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[5.181ms] [34;1m[rows:1][0m SELECT count(*) FROM information_schema.tables WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'customers' AND table_type = 'BASE TABLE'
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[1.913ms] [34;1m[rows:1][0m SELECT CURRENT_DATABASE()
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[14.571ms] [34;1m[rows:-][0m SELECT c.column_name, c.is_nullable = 'YES', c.udt_name, c.character_maximum_length, c.numeric_precision, c.numeric_precision_radix, c.numeric_scale, c.datetime_precision, 8 * typlen, c.column_default, pd.description, c.identity_increment FROM information_schema.columns AS c JOIN pg_type AS pgt ON c.udt_name = pgt.typname LEFT JOIN pg_catalog.pg_description as pd ON pd.objsubid = c.ordinal_position AND pd.objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = c.table_name AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = c.table_schema)) where table_catalog = 'coffee_shop' AND table_schema = CURRENT_SCHEMA() AND table_name = 'customers'
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[4.072ms] [34;1m[rows:-][0m SELECT * FROM "customers" LIMIT 1
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[11.495ms] [34;1m[rows:-][0m SELECT constraint_name FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'coffee_shop' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'customers' AND constraint_type = 'UNIQUE'
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[8.397ms] [34;1m[rows:-][0m SELECT c.column_name, constraint_name, constraint_type FROM information_schema.table_constraints tc JOIN information_schema.constraint_column_usage AS ccu USING (constraint_schema, constraint_catalog, table_name, constraint_name) JOIN information_schema.columns AS c ON c.table_schema = tc.constraint_schema AND tc.table_name = c.table_name AND ccu.column_name = c.column_name WHERE constraint_type IN ('PRIMARY KEY', 'UNIQUE') AND c.table_catalog = 'coffee_shop' AND c.table_schema = CURRENT_SCHEMA() AND c.table_name = 'customers'
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[0.859ms] [34;1m[rows:-][0m SELECT a.attname as column_name, format_type(a.atttypid, a.atttypmod) AS data_type
+		FROM pg_attribute a JOIN pg_class b ON a.attrelid = b.oid AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA())
+		WHERE a.attnum > 0 -- hide internal columns
+		AND NOT a.attisdropped -- hide deleted columns
+		AND b.relname = 'customers'
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[9.116ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'customers' AND column_name = 'id') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'customers' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[2.936ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'customers' AND column_name = 'full_name') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'customers' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[1.538ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'customers' AND column_name = 'email') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'customers' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[1.529ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'customers' AND column_name = 'phone_number') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'customers' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[3.512ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'customers' AND column_name = 'password') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'customers' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[3.077ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'customers' AND column_name = 'created_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'customers' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
+
+2024/07/16 00:42:26 [32mC:/Users/chrom/Programming/Golang/coffee-shop/config/database.go:39
+[0m[33m[0.000ms] [34;1m[rows:0][0m SELECT description FROM pg_catalog.pg_description WHERE objsubid = (SELECT ordinal_position FROM information_schema.columns WHERE table_schema = CURRENT_SCHEMA() AND table_name = 'customers' AND column_name = 'updated_at') AND objoid = (SELECT oid FROM pg_catalog.pg_class WHERE relname = 'customers' AND relnamespace = (SELECT oid FROM pg_catalog.pg_namespace WHERE nspname = CURRENT_SCHEMA()))
