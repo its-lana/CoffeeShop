@@ -13,3 +13,12 @@ func ToResponseCustomer(cust *model.Customer) *dto.Customer {
 		PhoneNumber: cust.PhoneNumber,
 	}
 }
+
+func ToResponseCustomerLogin(cust *model.Customer) *dto.CustomerLogin {
+	return &dto.CustomerLogin{
+		ID:          cust.ID,
+		FullName:    cust.FullName,
+		Email:       cust.Email,
+		PhoneNumber: cust.PhoneNumber,
+	}
+}

@@ -33,3 +33,7 @@ var FailedMessage = map[string]interface{}{
 type PayloadID struct {
 	Id int `json:"id"`
 }
+
+type Response struct {
+	Message string `json:"message"`
+}

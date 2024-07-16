@@ -48,12 +48,17 @@ func main() {
 
 	db.MigratingDatabase()
 
+	// construct route
 	custRepo := repository.NewCustomerRepository(db)
 	custUC := usecase.NewCustomerUseCase(custRepo)
 	custH := handlers.NewCustomerHandler(custUC)
 
+	authUC := usecase.NewAuthCustomerUsecase(custRepo)
+	authH := handlers.NewAuthHandler(authUC)
+
 	opts := server.RouterHandler{
 		CustomerHandler: custH,
+		AuthHandler:     authH,
 	}
 
 	r := server.NewRouter(opts, accessLogFile, errorLogFile)

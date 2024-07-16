@@ -5,11 +5,15 @@ import (
 	"github.com/its-lana/coffee-shop/model"
 )
 
-func ToCustomerModel(req *dto.ReqCustomer) *model.Customer {
+func ToCustomerModel(req *dto.ReqCustomer) (*model.Customer, error) {
+	hashedPassword, err := HashPassword(req.Password)
+	if err != nil {
+		return nil, err
+	}
 	return &model.Customer{
 		FullName:    req.FullName,
 		Email:       req.Email,
 		PhoneNumber: req.PhoneNumber,
-		Password:    req.Password,
-	}
+		Password:    hashedPassword,
+	}, nil
 }

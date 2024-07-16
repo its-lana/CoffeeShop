@@ -12,18 +12,24 @@ import (
 
 type RouterHandler struct {
 	CustomerHandler *handlers.CustomerHandler
+	AuthHandler     *handlers.AuthHandler
 }
 
 func NewRouter(opts RouterHandler, accessLogFile, errorLogFile *os.File) *gin.Engine {
-	gin.SetMode(gin.ReleaseMode)
+	// gin.SetMode(gin.ReleaseMode)
 	router := gin.New()
 	router.ContextWithFallback = true
 
 	router.Use(middleware.CorsMiddleware())
 
 	v1 := router.Group("/api/v1")
-
 	v1.GET("/", defaultHandler)
+
+	const login = "/login"
+	v1.POST(login+"/customer", opts.AuthHandler.LoginCustomer)
+
+	const customer = "/customer"
+	v1.POST(customer+"/register", opts.CustomerHandler.RegisterCustomer)
 
 	gin.DefaultWriter = io.MultiWriter(os.Stdout, accessLogFile)
 	gin.DefaultErrorWriter = io.MultiWriter(os.Stderr, errorLogFile)
