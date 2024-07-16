@@ -7,33 +7,33 @@ import (
 )
 
 type CustomerUseCase interface {
-	RetrieveAllCustomer() ([]dto.Customer, error)
-	CreateCustomer(*dto.ReqCustomer) (*dto.Customer, error)
+	RetrieveAllCustomer() ([]dto.RespCustomer, error)
+	CreateCustomer(*dto.ReqCustomer) (*dto.RespCustomer, error)
 }
 
 type customerUseCase struct {
 	customerRepository repository.CustomerRepository
 }
 
-func NewCustomerUseCase(sr repository.CustomerRepository) CustomerUseCase {
+func NewCustomerUseCase(repo repository.CustomerRepository) CustomerUseCase {
 	return &customerUseCase{
-		customerRepository: sr,
+		customerRepository: repo,
 	}
 }
 
-func (pu *customerUseCase) RetrieveAllCustomer() ([]dto.Customer, error) {
+func (pu *customerUseCase) RetrieveAllCustomer() ([]dto.RespCustomer, error) {
 	customers, err := pu.customerRepository.RetrieveAllCustomer()
 	if err != nil {
 		return nil, err
 	}
-	var resp []dto.Customer
+	var resp []dto.RespCustomer
 	for _, customer := range customers {
 		resp = append(resp, *helper.ToResponseCustomer(&customer))
 	}
 	return resp, nil
 }
 
-func (pu *customerUseCase) CreateCustomer(req *dto.ReqCustomer) (*dto.Customer, error) {
+func (pu *customerUseCase) CreateCustomer(req *dto.ReqCustomer) (*dto.RespCustomer, error) {
 	data, err := pu.customerRepository.CreateCustomer(req)
 	if err != nil {
 		return nil, err

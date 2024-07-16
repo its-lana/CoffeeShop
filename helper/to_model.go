@@ -6,7 +6,7 @@ import (
 )
 
 func ToCustomerModel(req *dto.ReqCustomer) (*model.Customer, error) {
-	hashedPassword, err := HashPassword(req.Password)
+	hashedPassword, err := hashPassword(req.Password)
 	if err != nil {
 		return nil, err
 	}
@@ -15,5 +15,22 @@ func ToCustomerModel(req *dto.ReqCustomer) (*model.Customer, error) {
 		Email:       req.Email,
 		PhoneNumber: req.PhoneNumber,
 		Password:    hashedPassword,
+	}, nil
+}
+
+func ToMerchantModel(req *dto.ReqMerchant) (*model.Merchant, error) {
+	hashedPassword, err := hashPassword(req.Password)
+	if err != nil {
+		return nil, err
+	}
+
+	return &model.Merchant{
+		MerchantName: req.MerchantName,
+		Address:      req.Address,
+		PICName:      req.PICName,
+		Email:        req.Email,
+		Password:     hashedPassword,
+		PhoneNumber:  req.PhoneNumber,
+		IsOpen:       req.IsOpen,
 	}, nil
 }

@@ -53,12 +53,17 @@ func main() {
 	custUC := usecase.NewCustomerUseCase(custRepo)
 	custH := handlers.NewCustomerHandler(custUC)
 
-	authUC := usecase.NewAuthCustomerUsecase(custRepo)
+	merchRepo := repository.NewMerchantRepository(db)
+	merchUC := usecase.NewMerchantUseCase(merchRepo)
+	merchH := handlers.NewMerchantHandler(merchUC)
+
+	authUC := usecase.NewAuthUsecase(custRepo, merchRepo)
 	authH := handlers.NewAuthHandler(authUC)
 
 	opts := server.RouterHandler{
 		CustomerHandler: custH,
 		AuthHandler:     authH,
+		MerchantHandler: merchH,
 	}
 
 	r := server.NewRouter(opts, accessLogFile, errorLogFile)
