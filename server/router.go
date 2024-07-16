@@ -14,6 +14,8 @@ type RouterHandler struct {
 	CustomerHandler *handlers.CustomerHandler
 	AuthHandler     *handlers.AuthHandler
 	MerchantHandler *handlers.MerchantHandler
+	MenuHandler     *handlers.MenuHandler
+	CategoryHandler *handlers.CategoryHandler
 }
 
 func NewRouter(opts RouterHandler, accessLogFile, errorLogFile *os.File) *gin.Engine {
@@ -24,7 +26,7 @@ func NewRouter(opts RouterHandler, accessLogFile, errorLogFile *os.File) *gin.En
 	router.Use(middleware.CorsMiddleware())
 
 	v1 := router.Group("/api/v1")
-	v1Auth := router.Group("/v1/auth", middleware.AuthorizeHandler())
+	v1Auth := router.Group("api/v1/auth", middleware.AuthorizeHandler())
 	v1.GET("/", defaultHandler)
 
 	const login = "/login"
@@ -38,6 +40,14 @@ func NewRouter(opts RouterHandler, accessLogFile, errorLogFile *os.File) *gin.En
 	const merchant = "/merchant"
 	v1.POST(merchant+"/register", opts.MerchantHandler.RegisterMerchant)
 	v1Auth.GET(merchant, opts.MerchantHandler.GetAllMerchants)
+
+	const category = "/category"
+	v1Auth.POST(category, opts.CategoryHandler.AddNewCategory)
+	v1.GET(category, opts.CategoryHandler.GetAllCategories)
+
+	const menu = "/menu"
+	v1Auth.POST(menu, opts.MenuHandler.AddNewMenu)
+	v1.GET(menu, opts.MenuHandler.GetAllMenus)
 
 	gin.DefaultWriter = io.MultiWriter(os.Stdout, accessLogFile)
 	gin.DefaultErrorWriter = io.MultiWriter(os.Stderr, errorLogFile)

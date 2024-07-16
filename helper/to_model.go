@@ -34,3 +34,22 @@ func ToMerchantModel(req *dto.ReqMerchant) (*model.Merchant, error) {
 		IsOpen:       req.IsOpen,
 	}, nil
 }
+
+func ToMenuModel(req *dto.ReqMenu) *model.Menu {
+	return &model.Menu{
+		ProductName:        req.ProductName,
+		Price:              req.Price,
+		Description:        req.Description,
+		ProductCode:        req.ProductCode,
+		ProductImage:       req.ProductImage,
+		CategoryID:         req.CategoryID,
+		AvailabilityStatus: req.AvailabilityStatus,
+	}
+}
+
+func ToCategoryModel(req *dto.ReqCategory) *model.Category {
+	return &model.Category{
+		CategoryName: req.CategoryName,
+		MerchantID:   req.MerchantID,
+	}
+}

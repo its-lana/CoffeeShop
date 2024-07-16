@@ -46,3 +46,29 @@ func ToResponseMerchantLogin(merchant *model.Merchant) *dto.RespMerchantLogin {
 		IsOpen:       merchant.IsOpen,
 	}
 }
+
+func ToResponseMenu(menu *model.Menu) *dto.RespMenu {
+	return &dto.RespMenu{
+		ID:                 menu.ID,
+		ProductName:        menu.ProductName,
+		Price:              menu.Price,
+		Description:        menu.Description,
+		ProductCode:        menu.ProductCode,
+		ProductImage:       menu.ProductImage,
+		CategoryID:         menu.CategoryID,
+		AvailabilityStatus: menu.AvailabilityStatus,
+	}
+}
+
+func ToResponseCategory(category *model.Category) *dto.RespCategory {
+	var menus []dto.RespMenu
+	for _, menu := range category.Menus {
+		menus = append(menus, *ToResponseMenu(&menu))
+	}
+	return &dto.RespCategory{
+		ID:           category.ID,
+		CategoryName: category.CategoryName,
+		MerchantID:   category.MerchantID,
+		Menus:        menus,
+	}
+}

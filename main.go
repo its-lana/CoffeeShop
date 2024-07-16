@@ -57,6 +57,14 @@ func main() {
 	merchUC := usecase.NewMerchantUseCase(merchRepo)
 	merchH := handlers.NewMerchantHandler(merchUC)
 
+	catRepo := repository.NewCategoryRepository(db)
+	catUC := usecase.NewCategoryUseCase(catRepo)
+	catH := handlers.NewCategoryHandler(catUC)
+
+	menuRepo := repository.NewMenuRepository(db)
+	menuUC := usecase.NewMenuUseCase(menuRepo)
+	menuH := handlers.NewMenuHandler(menuUC)
+
 	authUC := usecase.NewAuthUsecase(custRepo, merchRepo)
 	authH := handlers.NewAuthHandler(authUC)
 
@@ -64,6 +72,8 @@ func main() {
 		CustomerHandler: custH,
 		AuthHandler:     authH,
 		MerchantHandler: merchH,
+		CategoryHandler: catH,
+		MenuHandler:     menuH,
 	}
 
 	r := server.NewRouter(opts, accessLogFile, errorLogFile)
