@@ -12,6 +12,7 @@ import (
 type CartRepository interface {
 	CreateCart(*dto.ReqCart) (*dto.PayloadID, error)
 	RetrieveCartByCustomerID(int) (*model.Cart, error)
+	RetrieveCartIDByCustomerID(int) (*dto.PayloadID, error)
 	UpdateCart(int, *dto.ReqCart) (*dto.PayloadID, error)
 }
 
@@ -23,6 +24,15 @@ func NewCartRepository(config *config.GormDatabase) CartRepository {
 	return &cartRepository{
 		DB: config.DB,
 	}
+}
+
+func (mr *cartRepository) RetrieveCartIDByCustomerID(custID int) (*dto.PayloadID, error) {
+	var cartID int
+	err := mr.DB.Debug().Model(&model.Cart{}).Where("customer_id = ?", custID).Pluck("id", &cartID).Error
+	if err != nil {
+		return nil, err
+	}
+	return &dto.PayloadID{Id: cartID}, nil
 }
 
 func (mr *cartRepository) RetrieveCartByCustomerID(custID int) (*model.Cart, error) {

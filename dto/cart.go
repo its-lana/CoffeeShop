@@ -6,8 +6,9 @@ type ReqCart struct {
 }
 
 type RespCart struct {
-	ID         int             `json:"id"`
-	CustomerID int             `json:"customer_id"`
-	MerchantID int             `json:"merchant_id"`
-	OrderItems []RespOrderItem `json:"order_items"`
+	ID          int             `json:"id"`
+	CustomerID  int             `json:"customer_id"`
+	MerchantID  int             `json:"merchant_id"`
+	OrderItems  []RespOrderItem `json:"order_items"`
+	TotalAmount int             `json:"total_amount"`
 }

@@ -46,6 +46,8 @@ func main() {
 		log.Fatal("unable to connect to database")
 	}
 
+	midClient := config.NewMidtransClient()
+
 	db.MigratingDatabase()
 
 	// construct route
@@ -71,12 +73,23 @@ func main() {
 	authUC := usecase.NewAuthUsecase(custRepo, merchRepo)
 	authH := handlers.NewAuthHandler(authUC)
 
+	orderRepo := repository.NewOrderRepository(db)
+	payRepo := repository.NewPaymentRepository(db, midClient)
+
+	orderUC := usecase.NewOrderUseCase(orderRepo, cartRepo, payRepo, ordItemRepo, custRepo)
+	orderH := handlers.NewOrderHandler(orderUC)
+
+	payUC := usecase.NewPaymentUseCase(payRepo, orderRepo)
+	payH := handlers.NewPaymentHandler(payUC)
+
 	opts := server.RouterHandler{
 		CustomerHandler: custH,
 		AuthHandler:     authH,
 		MerchantHandler: merchH,
 		CategoryHandler: catH,
 		MenuHandler:     menuH,
+		OrderHandler:    orderH,
+		PaymentHandler:  payH,
 	}
 
 	r := server.NewRouter(opts, accessLogFile, errorLogFile)

@@ -54,7 +54,6 @@ func ToResponseMenu(menu *model.Menu) *dto.RespMenu {
 		Price:              menu.Price,
 		Description:        menu.Description,
 		ProductCode:        menu.ProductCode,
-		ProductImage:       menu.ProductImage,
 		CategoryID:         menu.CategoryID,
 		AvailabilityStatus: menu.AvailabilityStatus,
 	}
@@ -86,13 +85,52 @@ func ToResponseOrderItem(ordItem *model.OrderItem) *dto.RespOrderItem {
 
 func ToResponseCart(cart *model.Cart) *dto.RespCart {
 	var orderItems []dto.RespOrderItem
+	var totalAmount int
 	for _, ordItem := range cart.OrderItem {
 		orderItems = append(orderItems, *ToResponseOrderItem(&ordItem))
+		totalAmount += (int(ordItem.Menu.Price) * ordItem.Quantity)
 	}
+
 	return &dto.RespCart{
-		ID:         cart.ID,
-		CustomerID: cart.CustomerID,
-		MerchantID: cart.MerchantID,
-		OrderItems: orderItems,
+		ID:          cart.ID,
+		CustomerID:  cart.CustomerID,
+		MerchantID:  cart.MerchantID,
+		OrderItems:  orderItems,
+		TotalAmount: totalAmount,
+	}
+}
+
+func ToResponsePayment(payment *model.Payment) *dto.RespPayment {
+	return &dto.RespPayment{
+		ID:            payment.ID,
+		CustomerID:    payment.CustomerID,
+		OrderUID:      payment.OrderUID,
+		PaymentAmount: payment.PaymentAmount,
+		Status:        payment.Status,
+		PaymentMethod: payment.PaymentMethod,
+		PaymentURL:    payment.PaymentURL,
+		PaidDate:      payment.PaidDate,
+	}
+}
+
+func ToResponseOrder(o *model.Order) *dto.RespOrder {
+	var orderItems []dto.RespOrderItem
+	for _, ordItem := range o.OrderItem {
+		orderItems = append(orderItems, *ToResponseOrderItem(&ordItem))
+	}
+	return &dto.RespOrder{
+		ID:          o.ID,
+		OrderUID:    o.OrderUID,
+		CustomerID:  o.CustomerID,
+		MerchantID:  o.MerchantID,
+		FinalAmount: o.FinalAmount,
+		OrderType:   o.OrderType,
+		OrderNotes:  o.OrderNotes,
+		OrderStatus: o.OrderStatus,
+		NoteStatus:  o.NoteStatus,
+		OrderDate:   o.OrderDate,
+		Payment:     *ToResponsePayment(&o.Payment),
+		OrderCode:   o.OrderCode,
+		OrderItems:  orderItems,
 	}
 }

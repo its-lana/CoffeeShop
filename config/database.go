@@ -37,6 +37,7 @@ func NewPG(ctx context.Context, file *os.File) (*GormDatabase, error) {
 
 func (gd *GormDatabase) MigratingDatabase() {
 	gd.DB.AutoMigrate(&model.Customer{}, &model.Merchant{}, &model.Category{}, &model.Menu{}, &model.OrderItem{}, &model.Cart{})
+	gd.DB.AutoMigrate(&model.Order{}, &model.Payment{})
 }
 
 func LoadConnString() string {

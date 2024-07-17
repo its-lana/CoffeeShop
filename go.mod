@@ -10,6 +10,8 @@ require (
 	gorm.io/gorm v1.25.11
 )
 
+require github.com/cheekybits/is v0.0.0-20150225183255-68e9c0620927 // indirect
+
 require (
 	github.com/bytedance/sonic v1.11.6 // indirect
 	github.com/bytedance/sonic/loader v0.1.1 // indirect
@@ -39,6 +41,7 @@ require (
 	github.com/rogpeppe/go-internal v1.12.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.12 // indirect
+	github.com/veritrans/go-midtrans v0.0.0-20210616100512-16326c5eeb00
 	golang.org/x/arch v0.8.0 // indirect
 	golang.org/x/crypto v0.23.0
 	golang.org/x/net v0.25.0 // indirect

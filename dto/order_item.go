@@ -15,3 +15,8 @@ type RespOrderItem struct {
 	OwnerType    string    `json:"owner_type"`
 	MerchantMenu *RespMenu `json:"merchant_menu"`
 }
+
+type Owner struct {
+	OwnerID   int    `json:"owner_id"`
+	OwnerType string `json:"owner_type"`
+}

@@ -1,6 +1,8 @@
 package helper
 
 import (
+	"time"
+
 	"github.com/its-lana/coffee-shop/dto"
 	"github.com/its-lana/coffee-shop/model"
 )
@@ -41,7 +43,6 @@ func ToMenuModel(req *dto.ReqMenu) *model.Menu {
 		Price:              req.Price,
 		Description:        req.Description,
 		ProductCode:        req.ProductCode,
-		ProductImage:       req.ProductImage,
 		CategoryID:         req.CategoryID,
 		AvailabilityStatus: req.AvailabilityStatus,
 	}
@@ -67,5 +68,30 @@ func ToOrderItemModel(req *dto.ReqOrderItem) *model.OrderItem {
 		Quantity:  req.Quantity,
 		OwnerID:   req.OwnerID,
 		OwnerType: req.OwnerType,
+	}
+}
+
+func ToPaymentModel(req *dto.ReqPayment) *model.Payment {
+	return &model.Payment{
+		PaymentAmount: req.FinalAmount,
+		PaymentMethod: req.PaymentMethod,
+		OrderUID:      req.OrderUID,
+		CustomerID:    req.CustomerID,
+		PaymentURL:    req.PaymentURL,
+	}
+}
+
+func ToOrderModel(req *dto.ReqOrder) *model.Order {
+	return &model.Order{
+		OrderUID:    req.OrderUID,
+		CustomerID:  req.CustomerID,
+		MerchantID:  req.MerchantID,
+		FinalAmount: req.FinalAmount,
+		OrderType:   req.OrderType,
+		OrderNotes:  req.OrderNotes,
+		OrderStatus: req.OrderStatus,
+		NoteStatus:  req.NoteStatus,
+		OrderCode:   req.OrderCode,
+		OrderDate:   time.Now(),
 	}
 }

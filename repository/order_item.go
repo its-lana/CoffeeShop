@@ -15,7 +15,8 @@ type OrderItemRepository interface {
 	RetrieveOrderItemByMenuIDAndCartID(int, int) (*model.OrderItem, error) //param (menuID, cartID)
 	IsExistOrderItemByMenuIDAndCartID(int, int) (bool, error)              //param (menuID, cartID)
 	UpdateOrderItem(int, *dto.ReqOrderItem) (*dto.PayloadID, error)
-	DeleteOrderItemFromCart(int, int) error //param (menuID, cartID)
+	UpdateOwnerOrderItem(*dto.Owner, *dto.Owner) error //param (oldOwner, newOwner)
+	DeleteOrderItemFromCart(int, int) error            //param (menuID, cartID)
 	DeleteAllItemInCart(int) error
 }
 
@@ -82,6 +83,14 @@ func (mr *orderItemRepository) UpdateOrderItem(id int, req *dto.ReqOrderItem) (*
 		return nil, res.Error
 	}
 	return &dto.PayloadID{Id: data.ID}, nil
+}
+
+func (mr *orderItemRepository) UpdateOwnerOrderItem(oldOwner *dto.Owner, newOwner *dto.Owner) error {
+	res := mr.DB.Model(model.OrderItem{}).Where("owner_id = ? AND owner_type = ?", oldOwner.OwnerID, oldOwner.OwnerType).Updates(newOwner)
+	if res.Error != nil {
+		return res.Error
+	}
+	return nil
 }
 
 func (mr *orderItemRepository) DeleteAllItemInCart(cartID int) error {

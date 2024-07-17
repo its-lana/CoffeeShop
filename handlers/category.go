@@ -38,7 +38,7 @@ func (ch *CategoryHandler) AddNewCategory(c *gin.Context) {
 
 	res, err := ch.categoryUseCase.CreateCategory(&req)
 	if err != nil {
-		c.AbortWithStatusJSON(http.StatusInternalServerError, dto.ResponseFailed("failed to register category, "+err.Error(), http.StatusInternalServerError))
+		c.AbortWithStatusJSON(http.StatusInternalServerError, dto.ResponseFailed("failed to add category, "+err.Error(), http.StatusInternalServerError))
 		return
 	}
 	c.JSON(http.StatusOK, dto.ResponseSuccesWithData("success to add new category", res))

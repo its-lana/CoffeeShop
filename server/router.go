@@ -16,6 +16,8 @@ type RouterHandler struct {
 	MerchantHandler *handlers.MerchantHandler
 	MenuHandler     *handlers.MenuHandler
 	CategoryHandler *handlers.CategoryHandler
+	OrderHandler    *handlers.OrderHandler
+	PaymentHandler  *handlers.PaymentHandler
 }
 
 func NewRouter(opts RouterHandler, accessLogFile, errorLogFile *os.File) *gin.Engine {
@@ -44,6 +46,14 @@ func NewRouter(opts RouterHandler, accessLogFile, errorLogFile *os.File) *gin.En
 	const merchant = "/merchant"
 	v1.POST(merchant+"/register", opts.MerchantHandler.RegisterMerchant)
 	v1Auth.GET(merchant, opts.MerchantHandler.GetAllMerchants)
+
+	const order = "/order"
+	v1Auth.POST(order, opts.OrderHandler.PlaceNewOrder)
+	v1Auth.GET(order, opts.OrderHandler.GetAllOrders)
+
+	const payment = "/payment"
+	v1Auth.GET(payment, opts.PaymentHandler.GetAllPayments)
+	v1.POST(payment+"/notification", opts.PaymentHandler.PaymentNotification)
 
 	const category = "/category"
 	v1Auth.POST(category, opts.CategoryHandler.AddNewCategory)
