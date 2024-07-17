@@ -38,8 +38,8 @@ func (ch *MenuHandler) AddNewMenu(c *gin.Context) {
 
 	res, err := ch.menuUseCase.CreateMenu(&req)
 	if err != nil {
-		c.AbortWithStatusJSON(http.StatusInternalServerError, dto.ResponseFailed("failed to register menu, "+err.Error(), http.StatusInternalServerError))
+		c.AbortWithStatusJSON(http.StatusInternalServerError, dto.ResponseFailed("failed to add menu, "+err.Error(), http.StatusInternalServerError))
 		return
 	}
-	c.JSON(http.StatusOK, dto.ResponseSuccesWithData("success to register menu", res))
+	c.JSON(http.StatusOK, dto.ResponseSuccesWithData("success to add menu", res))
 }

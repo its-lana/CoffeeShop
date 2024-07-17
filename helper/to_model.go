@@ -53,3 +53,19 @@ func ToCategoryModel(req *dto.ReqCategory) *model.Category {
 		MerchantID:   req.MerchantID,
 	}
 }
+
+func ToCartModel(req *dto.ReqCart) *model.Cart {
+	return &model.Cart{
+		CustomerID: req.CustomerID,
+		MerchantID: req.MerchantID,
+	}
+}
+
+func ToOrderItemModel(req *dto.ReqOrderItem) *model.OrderItem {
+	return &model.OrderItem{
+		MenuID:    req.MenuID,
+		Quantity:  req.Quantity,
+		OwnerID:   req.OwnerID,
+		OwnerType: req.OwnerType,
+	}
+}

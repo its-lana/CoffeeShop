@@ -72,3 +72,27 @@ func ToResponseCategory(category *model.Category) *dto.RespCategory {
 		Menus:        menus,
 	}
 }
+
+func ToResponseOrderItem(ordItem *model.OrderItem) *dto.RespOrderItem {
+	return &dto.RespOrderItem{
+		ID:           ordItem.ID,
+		MenuID:       ordItem.MenuID,
+		Quantity:     ordItem.Quantity,
+		OwnerID:      ordItem.OwnerID,
+		OwnerType:    ordItem.OwnerType,
+		MerchantMenu: ToResponseMenu(&ordItem.Menu),
+	}
+}
+
+func ToResponseCart(cart *model.Cart) *dto.RespCart {
+	var orderItems []dto.RespOrderItem
+	for _, ordItem := range cart.OrderItem {
+		orderItems = append(orderItems, *ToResponseOrderItem(&ordItem))
+	}
+	return &dto.RespCart{
+		ID:         cart.ID,
+		CustomerID: cart.CustomerID,
+		MerchantID: cart.MerchantID,
+		OrderItems: orderItems,
+	}
+}

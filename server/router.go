@@ -35,7 +35,11 @@ func NewRouter(opts RouterHandler, accessLogFile, errorLogFile *os.File) *gin.En
 
 	const customer = "/customer"
 	v1.POST(customer+"/register", opts.CustomerHandler.RegisterCustomer)
-	v1Auth.GET(customer, opts.CustomerHandler.GetAllCustomers)
+	v1Auth.GET(customer, opts.CustomerHandler.RetrieveAllCustomer)
+	v1Auth.GET(customer+"/:cust-id/cart", opts.CustomerHandler.RetrieveCustomerCart)
+	v1Auth.POST(customer+"/:cust-id/order-item", opts.CustomerHandler.AddItemToCart)
+	v1Auth.DELETE(customer+"/:cust-id/order-item", opts.CustomerHandler.DeleteAllItemInCart)
+	v1Auth.DELETE(customer+"/:cust-id/order-item/:menu-id", opts.CustomerHandler.DeleteOrderItemFromCart)
 
 	const merchant = "/merchant"
 	v1.POST(merchant+"/register", opts.MerchantHandler.RegisterMerchant)

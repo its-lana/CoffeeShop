@@ -49,9 +49,8 @@ func main() {
 	db.MigratingDatabase()
 
 	// construct route
-	custRepo := repository.NewCustomerRepository(db)
-	custUC := usecase.NewCustomerUseCase(custRepo)
-	custH := handlers.NewCustomerHandler(custUC)
+	cartRepo := repository.NewCartRepository(db)
+	ordItemRepo := repository.NewOrderItemRepository(db)
 
 	merchRepo := repository.NewMerchantRepository(db)
 	merchUC := usecase.NewMerchantUseCase(merchRepo)
@@ -64,6 +63,10 @@ func main() {
 	menuRepo := repository.NewMenuRepository(db)
 	menuUC := usecase.NewMenuUseCase(menuRepo)
 	menuH := handlers.NewMenuHandler(menuUC)
+
+	custRepo := repository.NewCustomerRepository(db)
+	custUC := usecase.NewCustomerUseCase(custRepo, cartRepo, ordItemRepo, menuRepo)
+	custH := handlers.NewCustomerHandler(custUC)
 
 	authUC := usecase.NewAuthUsecase(custRepo, merchRepo)
 	authH := handlers.NewAuthHandler(authUC)
