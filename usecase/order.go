@@ -1,18 +1,21 @@
 package usecase
 
 import (
+	"errors"
 	"time"
 
 	"github.com/its-lana/coffee-shop/common"
 	"github.com/its-lana/coffee-shop/dto"
 	"github.com/its-lana/coffee-shop/helper"
+	"github.com/its-lana/coffee-shop/model"
 	"github.com/its-lana/coffee-shop/repository"
 )
 
 type OrderUseCase interface {
 	RetrieveAllOrder() ([]dto.RespOrder, error)
+	RetrieveCustomerOrder(int) ([]dto.RespOrder, error)
 	PlaceOrder(*dto.ReqOrder) (*dto.RespOrder, error)
-	// OrderNotification(*dto.ReqTransactionNotification) (*dto.RespOrder, error)
+	UpdateOrderStatus(uid, orderCode string) (*dto.RespOrder, error)
 }
 
 type orderUseCase struct {
@@ -43,6 +46,49 @@ func (pu *orderUseCase) RetrieveAllOrder() ([]dto.RespOrder, error) {
 		resp = append(resp, *helper.ToResponseOrder(&order))
 	}
 	return resp, nil
+}
+
+func (pu *orderUseCase) RetrieveCustomerOrder(custID int) ([]dto.RespOrder, error) {
+	orders, err := pu.orderRepository.RetrieveOrderByCustomerID(custID)
+	if err != nil {
+		return nil, err
+	}
+	var resp []dto.RespOrder
+	for _, order := range orders {
+		resp = append(resp, *helper.ToResponseOrder(&order))
+	}
+	return resp, nil
+}
+
+func (pu *orderUseCase) UpdateOrderStatus(uid, orderCode string) (*dto.RespOrder, error) {
+	currentOrder, err := pu.orderRepository.RetrieveOrderByUID(uid)
+	if err != nil {
+		return nil, err
+	}
+
+	var updatingOrder model.Order
+	switch currentOrder.OrderStatus {
+	case common.OrderBaruStatus:
+		updatingOrder.OrderStatus = common.DisiapkanStatus
+	case common.DisiapkanStatus:
+		updatingOrder.OrderStatus = common.SiapDiambilStatus
+	case common.SiapDiambilStatus:
+		if orderCode != currentOrder.OrderCode {
+			return nil, errors.New("incorrect order code")
+		}
+		updatingOrder.OrderStatus = common.SelesaiStatus
+	}
+
+	_, err = pu.orderRepository.UpdateOrder(currentOrder.ID, &updatingOrder)
+	if err != nil {
+		return nil, err
+	}
+
+	currentOrder, err = pu.orderRepository.RetrieveOrderByID(currentOrder.ID)
+	if err != nil {
+		return nil, err
+	}
+	return helper.ToResponseOrder(currentOrder), nil
 }
 
 func (pu *orderUseCase) PlaceOrder(req *dto.ReqOrder) (*dto.RespOrder, error) {

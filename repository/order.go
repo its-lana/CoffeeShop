@@ -18,6 +18,7 @@ type OrderRepository interface {
 	CreateOrder(*dto.ReqOrder) (*dto.PayloadID, error)
 	RetrieveAllOrder() ([]model.Order, error)
 	RetrieveOrderByID(int) (*model.Order, error)
+	RetrieveOrderByCustomerID(int) ([]model.Order, error)
 	RetrieveOrderByUID(string) (*model.Order, error)
 	UpdateOrder(int, *model.Order) (*dto.PayloadID, error) //param : (orderID, *model.Order)
 	CreateOrderNumber(string, int) (string, error)         // param : (orderType, merchantID)
@@ -78,6 +79,15 @@ func (cr *orderRepository) RetrieveOrderByID(id int) (*model.Order, error) {
 		return nil, err
 	}
 	return &order, nil
+}
+
+func (cr *orderRepository) RetrieveOrderByCustomerID(custID int) ([]model.Order, error) {
+	var orders []model.Order
+	err := cr.DB.Debug().Preload(clause.Associations).Preload("OrderItem.Menu").Find(&orders, "customer_id = ?", custID).Error
+	if err != nil {
+		return nil, err
+	}
+	return orders, nil
 }
 
 func (cr *orderRepository) RetrieveOrderByUID(uid string) (*model.Order, error) {

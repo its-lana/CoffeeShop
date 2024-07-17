@@ -39,6 +39,7 @@ func NewRouter(opts RouterHandler, accessLogFile, errorLogFile *os.File) *gin.En
 	v1.POST(customer+"/register", opts.CustomerHandler.RegisterCustomer)
 	v1Auth.GET(customer, opts.CustomerHandler.RetrieveAllCustomer)
 	v1Auth.GET(customer+"/:cust-id/cart", opts.CustomerHandler.RetrieveCustomerCart)
+	v1Auth.GET(customer+"/:cust-id/order", opts.OrderHandler.GetCustomerOrders)
 	v1Auth.POST(customer+"/:cust-id/order-item", opts.CustomerHandler.AddItemToCart)
 	v1Auth.DELETE(customer+"/:cust-id/order-item", opts.CustomerHandler.DeleteAllItemInCart)
 	v1Auth.DELETE(customer+"/:cust-id/order-item/:menu-id", opts.CustomerHandler.DeleteOrderItemFromCart)
@@ -50,6 +51,7 @@ func NewRouter(opts RouterHandler, accessLogFile, errorLogFile *os.File) *gin.En
 	const order = "/order"
 	v1Auth.POST(order, opts.OrderHandler.PlaceNewOrder)
 	v1Auth.GET(order, opts.OrderHandler.GetAllOrders)
+	v1Auth.PUT(order+"/status/:uid", opts.OrderHandler.ChangeOrderStatus)
 
 	const payment = "/payment"
 	v1Auth.GET(payment, opts.PaymentHandler.GetAllPayments)
