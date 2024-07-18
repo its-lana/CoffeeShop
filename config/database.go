@@ -54,20 +54,20 @@ func LoadConnString() string {
 	}
 
 	// Load the time zone location
-	location, err := time.LoadLocation("Asia/Jakarta")
-	if err != nil {
-		log.Fatal(err)
-	}
+	// location, err := time.LoadLocation("Asia/Jakarta")
+	// if err != nil {
+	// 	log.Fatal(err)
+	// }
 
 	// Construct the connection string
 	connectionString := fmt.Sprintf(
-		"user=%s password=%s host=%s port=%s dbname=%s sslmode=disable TimeZone=%s",
+		"user=%s password=%s host=%s port=%s dbname=%s sslmode=disable ",
 		config["DB_USERNAME"],
 		config["DB_PASSWORD"],
 		config["DB_HOST"],
 		config["DB_PORT"],
 		config["DB_NAME"],
-		location.String(),
+		// location.String(),
 	)
 
 	return connectionString

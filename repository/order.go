@@ -42,14 +42,11 @@ func (cr *orderRepository) CreateOrderNumber(orderType string, merchantID int) (
 	default:
 		orderTypeCode = "DI"
 	}
-	jakartaTimeZone, err := time.LoadLocation(common.JakartaLocation)
-	if err != nil {
-		return "", err
-	}
-	currentTime := time.Now().In(jakartaTimeZone)
+
+	currentTime := time.Now()
 	var count int64
-	startOfDay := time.Date(currentTime.Year(), currentTime.Month(), currentTime.Day(), 0, 0, 0, 0, jakartaTimeZone)
-	endOfDay := time.Date(currentTime.Year(), currentTime.Month(), currentTime.Day(), 23, 59, 59, 999999999, jakartaTimeZone)
+	startOfDay := time.Date(currentTime.Year(), currentTime.Month(), currentTime.Day(), 0, 0, 0, 0, nil)
+	endOfDay := time.Date(currentTime.Year(), currentTime.Month(), currentTime.Day(), 23, 59, 59, 999999999, nil)
 	if err := cr.DB.Debug().Model(&model.Order{}).
 		Where("merchant_id=?", merchantID).
 		Where("order_date BETWEEN ? AND ?", startOfDay, endOfDay).

@@ -1,0 +1,74 @@
+version: "3.9"
+networks:
+   shop_network:
+      driver: bridge
+
+services:
+   db:
+      image: postgres:latest
+      container_name: postgres_shop
+      restart: always
+      healthcheck:
+         test: ["CMD-SHELL", "pg_isready -U postgres"]
+         interval: 5s
+         timeout: 5s
+         retries: 5
+      volumes:
+         - ./db/pg_data/2:/var/lib/postgresql/data
+      environment:
+         POSTGRES_USER: "${DB_USERNAME}"
+         POSTGRES_PASSWORD: "${DB_PASSWORD}"
+         POSTGRES_DB: "${DB_NAME}"
+      ports:
+         - "${DB_PORT}:${DB_PORT}"
+      networks:
+         - shop_network
+   api:
+      build:
+         context: .
+         dockerfile: Dockerfile
+      image: coffee-shop
+      env_file:
+         - .env
+      ports:
+         - "8083:8083"
+      environment:
+         DB_HOST: postgres_shop
+      networks:
+         - shop_network
+      depends_on:
+         - db
+   nginx:
+      image: nginx:latest
+      restart: unless-stopped
+      volumes:
+         - ./nginx/conf:/etc/nginx/conf
+      ports:
+         - "80:80"
+      depends_on:
+         - api
+      networks:
+         - shop_network
+
+   redis:
+      image: redis:latest
+      container_name: redis_shop
+      restart: always
+      ports:
+         - "6379:6379"
+      networks:
+         - shop_network
+
+   ngrok:
+      image: wernight/ngrok
+      ports:
+         - "4040:4040" # Port Ngrok web UI
+      environment:
+         NGROK_AUTH: "${NGROK_AUTH}"
+         NGROK_PORT: "8083" # Port aplikasi yang ingin di-forward oleh Ngrok
+      networks:
+         - shop_network
+
+volumes:
+   db:
+      external: false

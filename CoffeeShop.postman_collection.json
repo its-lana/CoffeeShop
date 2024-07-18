@@ -1,0 +1,1670 @@
+{
+	"info": {
+		"_postman_id": "2ff88429-5c79-40d0-9384-e627c84980bf",
+		"name": "Shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29860843"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "login customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"johndoe@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/login/customer",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login",
+								"customer"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login customer",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"johndoe@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/login/customer",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"login",
+										"customer"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 02:12:15 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "349"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"full_name\": \"John Doe\",\n        \"email\": \"johndoe@example.com\",\n        \"phone_number\": \"123-456-7890\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImN1c3RvbWVyIiwiaXNzIjoiY29mZmVlLXNob3AiLCJleHAiOjE3MjM4NjA3MzUsImlhdCI6MTcyMTI2ODczNX0.f5AZl_1rtKLY9KYQ9jAXc2TDSsedjcTaLu_2Sq0hR6o\"\n    },\n    \"message\": \"login successfully\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "login merchant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"dika@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/login/merchant",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login",
+								"merchant"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "login merchant",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"dika@example.com\",\r\n  \"password\": \"securepassword123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/login/merchant",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"login",
+										"merchant"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 02:12:24 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "417"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"merchant_name\": \"Memories Coffee\",\n        \"address\": \"Kemang, Jaksel\",\n        \"pic_name\": \"Dika\",\n        \"email\": \"dika@example.com\",\n        \"phone_number\": \"123-456-7890\",\n        \"is_open\": true,\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6Im1lcmNoYW50IiwiaXNzIjoiY29mZmVlLXNob3AiLCJleHAiOjE3MjM4NjA3NDQsImlhdCI6MTcyMTI2ODc0NH0.q051iSzQSl9PwLrIlJUZ0KmDlTPzdn2YcO_mxTnJXZw\"\n    },\n    \"message\": \"login successfully\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Customer",
+			"item": [
+				{
+					"name": "Register Customer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"full_name\": \"John Doe 1\",\r\n  \"email\": \"johndoe1@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"phone_number\": \"123-456-7890\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/customer/register",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"customer",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "New Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"full_name\": \"John Doe 2\",\r\n  \"email\": \"johndoe2@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"phone_number\": \"123-456-7890\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/customer/register",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"customer",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 02:12:43 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "165"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 3,\n        \"full_name\": \"John Doe 2\",\n        \"email\": \"johndoe2@example.com\",\n        \"phone_number\": \"123-456-7890\"\n    },\n    \"message\": \"success to register customers \",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all Customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/v1/auth/customer",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"customer"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImN1c3RvbWVyIiwiaXNzIjoiY29mZmVlLXNob3AiLCJleHAiOjE3MjM3MjUwNjAsImlhdCI6MTcyMTEzMzA2MH0.zS30y-w7ayUls0NXXTXDm4Ah15zhXBuGDSfIQIgKVVs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Add item to cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"menu_id\": 5,\r\n    \"quantity\": 4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/auth/customer/1/order-item",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"customer",
+								"1",
+								"order-item"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add item to cart",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"menu_id\": 5,\r\n    \"quantity\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/auth/customer/1/order-item",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"customer",
+										"1",
+										"order-item"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Jul 2024 14:50:13 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "433"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"customer_id\": 1,\n        \"merchant_id\": 1,\n        \"order_items\": [\n            {\n                \"id\": 6,\n                \"menu_id\": 5,\n                \"quantity\": 3,\n                \"owner_id\": 1,\n                \"owner_type\": \"cart\",\n                \"merchant_menu\": {\n                    \"id\": 5,\n                    \"product_name\": \"Banana Strawberry Milk\",\n                    \"price\": 25000,\n                    \"description\": \"\",\n                    \"product_code\": \"banana-strawberry-milk\",\n                    \"product_image\": \"\",\n                    \"category_id\": 3,\n                    \"availability_status\": true\n                }\n            }\n        ],\n        \"total_amount\": 75000\n    },\n    \"message\": \"The order item has been successfully added to cart\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Customer Cart",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/v1/auth/customer/1/cart",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"customer",
+								"1",
+								"cart"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Customer Cart",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/v1/auth/customer/1/cart",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"customer",
+										"1",
+										"cart"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Jul 2024 14:06:13 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "736"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"customer_id\": 1,\n        \"merchant_id\": 1,\n        \"order_items\": [\n            {\n                \"id\": 4,\n                \"menu_id\": 1,\n                \"quantity\": 2,\n                \"owner_id\": 1,\n                \"owner_type\": \"cart\",\n                \"merchant_menu\": {\n                    \"id\": 1,\n                    \"product_name\": \"Espresso\",\n                    \"price\": 25000,\n                    \"description\": \"A strong and bold coffee shot, perfect for a quick caffeine boost.\",\n                    \"product_code\": \"espresso\",\n                    \"product_image\": \"\",\n                    \"category_id\": 1,\n                    \"availability_status\": true\n                }\n            },\n            {\n                \"id\": 5,\n                \"menu_id\": 5,\n                \"quantity\": 2,\n                \"owner_id\": 1,\n                \"owner_type\": \"cart\",\n                \"merchant_menu\": {\n                    \"id\": 5,\n                    \"product_name\": \"Banana Strawberry Milk\",\n                    \"price\": 25000,\n                    \"description\": \"\",\n                    \"product_code\": \"banana-strawberry-milk\",\n                    \"product_image\": \"\",\n                    \"category_id\": 3,\n                    \"availability_status\": true\n                }\n            }\n        ],\n        \"total_amount\": 100000\n    },\n    \"message\": \"The customer cart has been successfully retrieved\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete All item in cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/v1/auth/customer/1/order-item",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"customer",
+								"1",
+								"order-item"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete All item in cart",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/v1/auth/customer/1/order-item",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"customer",
+										"1",
+										"order-item"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 02:16:32 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "152"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"customer_id\": 1,\n        \"merchant_id\": 1,\n        \"order_items\": null,\n        \"total_amount\": 0\n    },\n    \"message\": \"success to delete all item in cart \",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete item from cart",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/v1/auth/customer/1/order-item/1",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"customer",
+								"1",
+								"order-item",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete item from cart",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/v1/auth/customer/1/order-item/1",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"customer",
+										"1",
+										"order-item",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 02:17:28 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "416"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 1,\n        \"customer_id\": 1,\n        \"merchant_id\": 1,\n        \"order_items\": [\n            {\n                \"id\": 8,\n                \"menu_id\": 5,\n                \"quantity\": 3,\n                \"owner_id\": 1,\n                \"owner_type\": \"cart\",\n                \"merchant_menu\": {\n                    \"id\": 5,\n                    \"product_name\": \"Banana Strawberry Milk\",\n                    \"price\": 25000,\n                    \"description\": \"\",\n                    \"product_code\": \"banana-strawberry-milk\",\n                    \"product_image\": \"\",\n                    \"category_id\": 3,\n                    \"availability_status\": true\n                }\n            }\n        ],\n        \"total_amount\": 75000\n    },\n    \"message\": \"success to delete item from cart \",\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6ImN1c3RvbWVyIiwiaXNzIjoiY29mZmVlLXNob3AiLCJleHAiOjE3MjM3MjUwNjAsImlhdCI6MTcyMTEzMzA2MH0.zS30y-w7ayUls0NXXTXDm4Ah15zhXBuGDSfIQIgKVVs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Merchant",
+			"item": [
+				{
+					"name": "Register Merchant",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"merchant_name\": \"Memories Coffee\",\r\n  \"address\": \"Kemang, Jaksel\",\r\n  \"pic_name\": \"Dika\",\r\n  \"email\": \"dika@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"phone_number\": \"123-456-7890\",\r\n  \"is_open\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/merchant/register",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"merchant",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register Merchant",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"merchant_name\": \"Memories Coffee Pasming\",\r\n  \"address\": \"Pasming, Jaksel\",\r\n  \"pic_name\": \"Dilan\",\r\n  \"email\": \"dilan2@example.com\",\r\n  \"password\": \"securepassword123\",\r\n  \"phone_number\": \"123-456-7890\",\r\n  \"is_open\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/merchant/register",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"merchant",
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 02:18:08 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "242"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 3,\n        \"merchant_name\": \"Memories Coffee Pasming\",\n        \"address\": \"Pasming, Jaksel\",\n        \"pic_name\": \"Dilan\",\n        \"email\": \"dilan2@example.com\",\n        \"phone_number\": \"123-456-7890\",\n        \"is_open\": true\n    },\n    \"message\": \"success to register merchants \",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Merchant",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/v1/auth/merchant",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"merchant"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Merchant",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/v1/auth/merchant",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"merchant"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 02:18:14 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "594"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"merchant_name\": \"Memories Coffee\",\n            \"address\": \"Kemang, Jaksel\",\n            \"pic_name\": \"Dika\",\n            \"email\": \"dika@example.com\",\n            \"phone_number\": \"123-456-7890\",\n            \"is_open\": true\n        },\n        {\n            \"id\": 2,\n            \"merchant_name\": \"Memories Coffee Tebet\",\n            \"address\": \"Kemang, Jaksel\",\n            \"pic_name\": \"Dilan\",\n            \"email\": \"dilan@example.com\",\n            \"phone_number\": \"123-456-7890\",\n            \"is_open\": true\n        },\n        {\n            \"id\": 3,\n            \"merchant_name\": \"Memories Coffee Pasming\",\n            \"address\": \"Pasming, Jaksel\",\n            \"pic_name\": \"Dilan\",\n            \"email\": \"dilan2@example.com\",\n            \"phone_number\": \"123-456-7890\",\n            \"is_open\": true\n        }\n    ],\n    \"message\": \"The merchants record has been successfully retrieved\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6Im1lcmNoYW50IiwiaXNzIjoiY29mZmVlLXNob3AiLCJleHAiOjE3MjM2OTMzMDksImlhdCI6MTcyMTEwMTMwOX0.TOuTAZloI4i-3kYixSHFXHd4QZbVeASgeBEVdW4oXqs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Place Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customer_id\": 1,\r\n  \"order_type\": \"dine-in\", //or take-away\r\n  \"order_notes\": \"\",\r\n  \"payment_method\": \"other_qris\" //or gopay\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/auth/order",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register Merchant",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customer_id\": 1,\r\n  \"order_type\": \"dine-in\", //or take-away\r\n  \"order_notes\": \"\",\r\n  \"payment_method\": \"other_qris\" //or gopay\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/auth/order",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Jul 2024 14:50:24 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "850"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 2,\n        \"order_uid\": \"DI-0117072024215023002\",\n        \"customer_id\": 1,\n        \"merchant_id\": 1,\n        \"final_amount\": 75000,\n        \"order_type\": \"dine-in\",\n        \"order_status\": \"belum-bayar\",\n        \"order_code\": \"T34O\",\n        \"order_date\": \"2024-07-17T21:50:23.955723+07:00\",\n        \"order_items\": [\n            {\n                \"id\": 6,\n                \"menu_id\": 5,\n                \"quantity\": 3,\n                \"owner_id\": 2,\n                \"owner_type\": \"order\",\n                \"merchant_menu\": {\n                    \"id\": 5,\n                    \"product_name\": \"Banana Strawberry Milk\",\n                    \"price\": 25000,\n                    \"description\": \"\",\n                    \"product_code\": \"banana-strawberry-milk\",\n                    \"product_image\": \"\",\n                    \"category_id\": 3,\n                    \"availability_status\": true\n                }\n            }\n        ],\n        \"payment\": {\n            \"id\": 2,\n            \"customer_id\": 1,\n            \"order_uid\": \"DI-0117072024215023002\",\n            \"payment_amount\": 75000,\n            \"status\": \"\",\n            \"payment_method\": \"other_qris\",\n            \"payment_url\": \"https://app.sandbox.midtrans.com/snap/v4/redirection/a84a08cc-13e4-4b20-b1af-3ce8f7b37cf5\",\n            \"paid_date\": \"0001-01-01T07:00:00+07:00\"\n        }\n    },\n    \"message\": \"success to place new order\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Order",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/v1/auth/order",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"order"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Merchant",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/v1/auth/order",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"order"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Jul 2024 14:52:25 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1883"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"order_uid\": \"DI-011707202421344001\",\n            \"customer_id\": 1,\n            \"merchant_id\": 1,\n            \"final_amount\": 100000,\n            \"order_type\": \"dine-in\",\n            \"order_status\": \"belum-bayar\",\n            \"order_code\": \"F2ZF\",\n            \"order_date\": \"2024-07-17T21:34:04.44759+07:00\",\n            \"order_items\": [\n                {\n                    \"id\": 4,\n                    \"menu_id\": 1,\n                    \"quantity\": 2,\n                    \"owner_id\": 1,\n                    \"owner_type\": \"order\",\n                    \"merchant_menu\": {\n                        \"id\": 1,\n                        \"product_name\": \"Espresso\",\n                        \"price\": 25000,\n                        \"description\": \"A strong and bold coffee shot, perfect for a quick caffeine boost.\",\n                        \"product_code\": \"espresso\",\n                        \"product_image\": \"\",\n                        \"category_id\": 1,\n                        \"availability_status\": true\n                    }\n                },\n                {\n                    \"id\": 5,\n                    \"menu_id\": 5,\n                    \"quantity\": 2,\n                    \"owner_id\": 1,\n                    \"owner_type\": \"order\",\n                    \"merchant_menu\": {\n                        \"id\": 5,\n                        \"product_name\": \"Banana Strawberry Milk\",\n                        \"price\": 25000,\n                        \"description\": \"\",\n                        \"product_code\": \"banana-strawberry-milk\",\n                        \"product_image\": \"\",\n                        \"category_id\": 3,\n                        \"availability_status\": true\n                    }\n                }\n            ],\n            \"payment\": {\n                \"id\": 1,\n                \"customer_id\": 1,\n                \"order_uid\": \"DI-011707202421344001\",\n                \"payment_amount\": 100000,\n                \"status\": \"\",\n                \"payment_method\": \"other_qris\",\n                \"payment_url\": \"\",\n                \"paid_date\": \"0001-01-01T07:00:00+07:00\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"order_uid\": \"DI-0117072024215023002\",\n            \"customer_id\": 1,\n            \"merchant_id\": 1,\n            \"final_amount\": 75000,\n            \"order_type\": \"dine-in\",\n            \"order_status\": \"order-baru\",\n            \"order_code\": \"T34O\",\n            \"order_date\": \"2024-07-17T21:50:23.955723+07:00\",\n            \"order_items\": [\n                {\n                    \"id\": 6,\n                    \"menu_id\": 5,\n                    \"quantity\": 3,\n                    \"owner_id\": 2,\n                    \"owner_type\": \"order\",\n                    \"merchant_menu\": {\n                        \"id\": 5,\n                        \"product_name\": \"Banana Strawberry Milk\",\n                        \"price\": 25000,\n                        \"description\": \"\",\n                        \"product_code\": \"banana-strawberry-milk\",\n                        \"product_image\": \"\",\n                        \"category_id\": 3,\n                        \"availability_status\": true\n                    }\n                }\n            ],\n            \"payment\": {\n                \"id\": 2,\n                \"customer_id\": 1,\n                \"order_uid\": \"DI-0117072024215023002\",\n                \"payment_amount\": 75000,\n                \"status\": \"paid\",\n                \"payment_method\": \"other_qris\",\n                \"payment_url\": \"https://app.sandbox.midtrans.com/snap/v4/redirection/a84a08cc-13e4-4b20-b1af-3ce8f7b37cf5\",\n                \"paid_date\": \"2024-07-17T21:51:47.388923+07:00\"\n            }\n        }\n    ],\n    \"message\": \"The orders record has been successfully retrieved\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Customer Orders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}/api/v1/auth/customer/:custID/order",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"customer",
+								":custID",
+								"order"
+							],
+							"variable": [
+								{
+									"key": "custID",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Customer Orders",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{local}}/api/v1/auth/customer/:custID/order",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"customer",
+										":custID",
+										"order"
+									],
+									"variable": [
+										{
+											"key": "custID",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 17 Jul 2024 16:07:43 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1883"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"order_uid\": \"DI-011707202421344001\",\n            \"customer_id\": 1,\n            \"merchant_id\": 1,\n            \"final_amount\": 100000,\n            \"order_type\": \"dine-in\",\n            \"order_status\": \"belum-bayar\",\n            \"order_code\": \"F2ZF\",\n            \"order_date\": \"2024-07-17T21:34:04.44759+07:00\",\n            \"order_items\": [\n                {\n                    \"id\": 4,\n                    \"menu_id\": 1,\n                    \"quantity\": 2,\n                    \"owner_id\": 1,\n                    \"owner_type\": \"order\",\n                    \"merchant_menu\": {\n                        \"id\": 1,\n                        \"product_name\": \"Espresso\",\n                        \"price\": 25000,\n                        \"description\": \"A strong and bold coffee shot, perfect for a quick caffeine boost.\",\n                        \"product_code\": \"espresso\",\n                        \"product_image\": \"\",\n                        \"category_id\": 1,\n                        \"availability_status\": true\n                    }\n                },\n                {\n                    \"id\": 5,\n                    \"menu_id\": 5,\n                    \"quantity\": 2,\n                    \"owner_id\": 1,\n                    \"owner_type\": \"order\",\n                    \"merchant_menu\": {\n                        \"id\": 5,\n                        \"product_name\": \"Banana Strawberry Milk\",\n                        \"price\": 25000,\n                        \"description\": \"\",\n                        \"product_code\": \"banana-strawberry-milk\",\n                        \"product_image\": \"\",\n                        \"category_id\": 3,\n                        \"availability_status\": true\n                    }\n                }\n            ],\n            \"payment\": {\n                \"id\": 1,\n                \"customer_id\": 1,\n                \"order_uid\": \"DI-011707202421344001\",\n                \"payment_amount\": 100000,\n                \"status\": \"\",\n                \"payment_method\": \"other_qris\",\n                \"payment_url\": \"\",\n                \"paid_date\": \"0001-01-01T07:00:00+07:00\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"order_uid\": \"DI-0117072024215023002\",\n            \"customer_id\": 1,\n            \"merchant_id\": 1,\n            \"final_amount\": 75000,\n            \"order_type\": \"dine-in\",\n            \"order_status\": \"order-baru\",\n            \"order_code\": \"T34O\",\n            \"order_date\": \"2024-07-17T21:50:23.955723+07:00\",\n            \"order_items\": [\n                {\n                    \"id\": 6,\n                    \"menu_id\": 5,\n                    \"quantity\": 3,\n                    \"owner_id\": 2,\n                    \"owner_type\": \"order\",\n                    \"merchant_menu\": {\n                        \"id\": 5,\n                        \"product_name\": \"Banana Strawberry Milk\",\n                        \"price\": 25000,\n                        \"description\": \"\",\n                        \"product_code\": \"banana-strawberry-milk\",\n                        \"product_image\": \"\",\n                        \"category_id\": 3,\n                        \"availability_status\": true\n                    }\n                }\n            ],\n            \"payment\": {\n                \"id\": 2,\n                \"customer_id\": 1,\n                \"order_uid\": \"DI-0117072024215023002\",\n                \"payment_amount\": 75000,\n                \"status\": \"paid\",\n                \"payment_method\": \"other_qris\",\n                \"payment_url\": \"https://app.sandbox.midtrans.com/snap/v4/redirection/a84a08cc-13e4-4b20-b1af-3ce8f7b37cf5\",\n                \"paid_date\": \"2024-07-17T21:51:47.388923+07:00\"\n            }\n        }\n    ],\n    \"message\": \"The orders record has been successfully retrieved\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6Im1lcmNoYW50IiwiaXNzIjoiY29mZmVlLXNob3AiLCJleHAiOjE3MjM2OTMzMDksImlhdCI6MTcyMTEwMTMwOX0.TOuTAZloI4i-3kYixSHFXHd4QZbVeASgeBEVdW4oXqs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Add New Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\": \"Smoothies\",\r\n    \"merchant_id\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/auth/category",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"category"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add New Category",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_name\": \"Tea\",\r\n    \"merchant_id\": 2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/auth/category",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"category"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 02:18:56 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 5,\n        \"category_name\": \"Tea\",\n        \"merchant_id\": 2,\n        \"menus\": null\n    },\n    \"message\": \"success to add new category\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\": \"Non-Coffee\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/category",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Category",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_name\": \"Non-Coffee\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/category",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"category"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 02:19:04 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "982"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"category_name\": \"Coffee\",\n            \"merchant_id\": 1,\n            \"menus\": [\n                {\n                    \"id\": 1,\n                    \"product_name\": \"Espresso\",\n                    \"price\": 25000,\n                    \"description\": \"A strong and bold coffee shot, perfect for a quick caffeine boost.\",\n                    \"product_code\": \"espresso\",\n                    \"product_image\": \"\",\n                    \"category_id\": 1,\n                    \"availability_status\": true\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"category_name\": \"Non-Coffee\",\n            \"merchant_id\": 1,\n            \"menus\": null\n        },\n        {\n            \"id\": 3,\n            \"category_name\": \"Smoothies\",\n            \"merchant_id\": 1,\n            \"menus\": [\n                {\n                    \"id\": 5,\n                    \"product_name\": \"Banana Strawberry Milk\",\n                    \"price\": 25000,\n                    \"description\": \"\",\n                    \"product_code\": \"banana-strawberry-milk\",\n                    \"product_image\": \"\",\n                    \"category_id\": 3,\n                    \"availability_status\": true\n                }\n            ]\n        },\n        {\n            \"id\": 4,\n            \"category_name\": \"Smoothies\",\n            \"merchant_id\": 2,\n            \"menus\": [\n                {\n                    \"id\": 2,\n                    \"product_name\": \"Banana Strawberry\",\n                    \"price\": 25000,\n                    \"description\": \"\",\n                    \"product_code\": \"banana-strawberry\",\n                    \"product_image\": \"\",\n                    \"category_id\": 4,\n                    \"availability_status\": true\n                }\n            ]\n        },\n        {\n            \"id\": 5,\n            \"category_name\": \"Tea\",\n            \"merchant_id\": 2,\n            \"menus\": null\n        }\n    ],\n    \"message\": \"The categories record has been successfully retrieved\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6Im1lcmNoYW50IiwiaXNzIjoiY29mZmVlLXNob3AiLCJleHAiOjE3MjM2OTMzMDksImlhdCI6MTcyMTEwMTMwOX0.TOuTAZloI4i-3kYixSHFXHd4QZbVeASgeBEVdW4oXqs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Menu",
+			"item": [
+				{
+					"name": "Add New Menu",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"product_name\": \"Banana Strawberry Milk\",\r\n  \"price\": 25000,\r\n  \"description\": \"\",\r\n  \"product_code\": \"banana-strawberry-milk\",\r\n  \"category_id\": 3,\r\n  \"availability_status\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/auth/menu",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"menu"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add New Menu",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"product_name\": \"Banana Strawberry Pandan\",\r\n  \"price\": 25000,\r\n  \"description\": \"\",\r\n  \"product_code\": \"banana-strawberry-pandan\",\r\n  \"category_id\": 3,\r\n  \"availability_status\": true\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}/api/v1/auth/menu",
+									"host": [
+										"{{local}}"
+									],
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"menu"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Content-Type, Strict-Transport-Security, X-Content-Type-Options, X-Frame-Options, X-XSS-Protection, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "POST, OPTIONS, GET, PUT, DELETE"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Expose-Headers",
+									"value": "Content-Length, Authorization"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 18 Jul 2024 02:19:37 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "245"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": 6,\n        \"product_name\": \"Banana Strawberry Pandan\",\n        \"price\": 25000,\n        \"description\": \"\",\n        \"product_code\": \"banana-strawberry-pandan\",\n        \"product_image\": \"\",\n        \"category_id\": 3,\n        \"availability_status\": true\n    },\n    \"message\": \"success to add menu\",\n    \"status\": \"success\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Menu",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"product_name\": \"Espresso\",\r\n  \"price\": 25000,\r\n  \"description\": \"A strong and bold coffee shot, perfect for a quick caffeine boost.\",\r\n  \"product_code\": \"espresso\",\r\n  \"category_id\": 1,\r\n  \"availability_status\": true\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}/api/v1/menu",
+							"host": [
+								"{{local}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwicm9sZSI6Im1lcmNoYW50IiwiaXNzIjoiY29mZmVlLXNob3AiLCJleHAiOjE3MjM2OTMzMDksImlhdCI6MTcyMTEwMTMwOX0.TOuTAZloI4i-3kYixSHFXHd4QZbVeASgeBEVdW4oXqs",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

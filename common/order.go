@@ -1,7 +1,6 @@
 package common
 
 const (
-	JakartaLocation          = "Asia/Jakarta"
 	BelumBayarStatus         = "belum-bayar"
 	MenungguPembayaranStatus = "nunggu-bayar"
 	OrderBaruStatus          = "order-baru"
